@@ -10,3 +10,7 @@
 
 5. create repository
 
+6. create restController
+
+7. create Angular project
+
