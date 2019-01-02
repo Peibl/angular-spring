@@ -1,16 +1,17 @@
-# CRUD with Angular and Spring Boot
+# CRUD with Angular, Spring Boot and MYSQL
+
 
 1. Create a project from the spring boot site
 
-2. create your database and tables on mysql 
+2. Create your database and tables on mysql 
 
-3. create data scource application.properties
+3. Config data source in application.properties file
 
-4. create model by JEE
+4. Create models by JEE
 
-5. create repository
+5. Create repository
 
-6. create restController
+6. Create restController
 
-7. create Angular project
+7. Create Angular project
 
