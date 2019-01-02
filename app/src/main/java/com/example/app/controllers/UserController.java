@@ -19,6 +19,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @CrossOrigin
     @GetMapping("/users")
     public List<User> retrieveAllUsers() {
         List<User> users = null;
@@ -28,6 +29,7 @@ public class UserController {
         return null;
     }
 
+    @CrossOrigin
     @GetMapping("/users/{id}")
     public User retrieveStudent(@PathVariable long id) {
         Optional<User> user = userRepository.findById(id);
@@ -39,11 +41,13 @@ public class UserController {
     }
 
 
+    @CrossOrigin
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable long id) {
         userRepository.deleteById(id);
     }
 
+    @CrossOrigin
     @PostMapping("/users")
     public ResponseEntity<Object> createUser(@RequestBody User user) {
         User savedUser = userRepository.save(user);
@@ -55,6 +59,7 @@ public class UserController {
 
     }
 
+    @CrossOrigin
     @PutMapping("/users/{id}")
     public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable long id) {
 

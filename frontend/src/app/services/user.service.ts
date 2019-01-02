@@ -7,35 +7,35 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8080/users';
 
   constructor(private http: HttpClient) { }
 
   getUser(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/users/${id}`);
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   createUser(user: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/users`, user);
+    return this.http.post(`${this.baseUrl}`, user);
   }
 
   updateUser(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/users/${id}`, value);
+    return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/users/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
   getUsersList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/users`);
+    return this.http.get(`${this.baseUrl}`);
   }
 
   getUsersByEmail(email: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/users/email/${email}`);
+    return this.http.get(`${this.baseUrl}/email/${email}`);
   }
 
   deleteAll(): Observable<any> {
-    return this.http.delete(`${this.baseUrl}` + `/users/delete`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });
   }
 }
