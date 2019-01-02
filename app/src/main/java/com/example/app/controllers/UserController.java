@@ -38,12 +38,28 @@ public class UserController {
 
         return user.get();
     }
+    @CrossOrigin
+    @GetMapping("/users/email/{email}")
+    public List<User> retrieveStudent(@PathVariable String email) {
+        List<User> users = null;
+        users = userRepository.findByEmail(email);
+        if (users != null && users.size() > 0)
+            return users;
+
+        return null;
+    }
 
 
     @CrossOrigin
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable long id) {
         userRepository.deleteById(id);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/users/delete")
+    public void deleteAllUser() {
+        userRepository.deleteAll();
     }
 
     @CrossOrigin

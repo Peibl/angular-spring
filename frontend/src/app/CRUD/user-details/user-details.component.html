@@ -1,15 +1,11 @@
-<div *ngIf="user">
-  <div>
-    <label> First name: </label> {{user.firstname}}
-  </div>
-  <div>
-    <label> Last name: </label> {{user.lastname}}
-  </div>
-  <div>
-    <label> Email: </label> {{user.email}}
-  </div>
+<div  class="card" >
+  <div class="card-body" *ngIf="user">
+    <h5 class="card-title">{{user.firstname}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{user.lastname}}</h6>
 
-  <span class="button is-small btn-danger" (click)='deleteUser()'>Delete</span>
-
-  <hr/>
+    <p class="card-text">
+      <label> Email: </label> {{user.email}}
+    </p>
+    <a href="#" class="button is-small btn-danger" (click)='deleteUser()' class="card-link">Delete</a>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { UserService } from '../../services/user.service';
@@ -11,12 +11,14 @@ import { User } from '../../models/user';
 })
 export class UsersListComponent implements OnInit {
 
-  users: Observable<User[]>;
+@Input users: Observable<User[]>;
+   // @Input usersResult: Observable<User[]>;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.reloadData();
+    // this.usersResult = this.users;
   }
 
   deleteUsers() {
@@ -32,4 +34,9 @@ export class UsersListComponent implements OnInit {
   reloadData() {
     this.users = this.userService.getUsersList();
   }
+
+  resultData(){
+    this.users = this.usersResult;
+  }
+
 }

@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="email" name="email">
+      <input type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
     </div>
 
     <div class="btn-group">
@@ -11,8 +11,10 @@
     </div>
   </form>
 </div>
-<ul>
-  <li *ngFor="let user of users">
-    <h4>{{user.id}} - {{user.lastname}} {{user.first}}</h4>
-  </li>
-</ul>
+
+<users-list [usersResult] = users></users-list>
+<!--<div class="row">-->
+  <!--<div class="col-sm-3" *ngFor="let user of users">-->
+    <!--<user-details [user]='user'></user-details>-->
+  <!--</div>-->
+<!--</div>-->
