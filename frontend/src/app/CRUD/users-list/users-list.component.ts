@@ -11,7 +11,7 @@ import { User } from '../../models/user';
 })
 export class UsersListComponent implements OnInit {
 
-@Input users: Observable<User[]>;
+ users: Observable<User[]>;
    // @Input usersResult: Observable<User[]>;
 
   constructor(private userService: UserService) { }
@@ -35,8 +35,8 @@ export class UsersListComponent implements OnInit {
     this.users = this.userService.getUsersList();
   }
 
-  resultData(){
-    this.users = this.usersResult;
-  }
+  // resultData(){
+  //   this.users = this.usersResult;
+  // }
 
 }

@@ -12,7 +12,25 @@
   </form>
 </div>
 
-<users-list [usersResult] = users></users-list>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <th scope="row">1</th>
+    <td>{{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+  </tbody>
+</table>
+<!--<users-list [usersResult] = users></users-list>-->
 <!--<div class="row">-->
   <!--<div class="col-sm-3" *ngFor="let user of users">-->
     <!--<user-details [user]='user'></user-details>-->
