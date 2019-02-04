@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 
-import { UserService } from '../../services/user.service';
-import { User } from '../../models/user';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'users-list',
@@ -11,10 +11,12 @@ import { User } from '../../models/user';
 })
 export class UsersListComponent implements OnInit {
 
- users: Observable<User[]>;
-   // @Input usersResult: Observable<User[]>;
+  users: Observable<User[]>;
 
-  constructor(private userService: UserService) { }
+  // @Input usersResult: Observable<User[]>;
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
     this.reloadData();
