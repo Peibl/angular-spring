@@ -10,6 +10,8 @@ import { UsersListComponent } from './CRUD/users-list/users-list.component';
 import { SearchUsersComponent } from './CRUD/search-users/search-users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     CreateUserComponent,
     UserDetailsComponent,
     UsersListComponent,
-    SearchUsersComponent
+    SearchUsersComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
