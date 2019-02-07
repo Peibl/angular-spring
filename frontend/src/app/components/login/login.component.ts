@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 export class LoginComponent implements OnInit {
   model: any = {};
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -18,11 +19,11 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.model);
     localStorage.setItem('isLoggedin', 'true');
+    this.router.navigate(['/dashboard']);
     // this.loading = true;
     // this.authenticationService.login(this.model.username, this.model.password)
     //   .subscribe(
     //     data => {
-    //       this.router.navigate([this.returnUrl]);
     //     },
     //     error => {
     //       this.alertService.error(error);

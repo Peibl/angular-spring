@@ -1,18 +1,16 @@
 <div class="container">
-  <!--<h1 style="color: blue">{{title}}</h1>-->
-  <!--<h3>Lista de usuarios</h3>-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a routerLink="user" class="nav-link" role="button" routerLinkActive="active">Usuarios</a>
+          <a [routerLink]="['/user']" class="nav-link" role="button" routerLinkActive="active">Usuarios</a>
         </li>
         <li class="nav-item">
-          <a routerLink="add" class="nav-link" role="button" routerLinkActive="active">Agregar</a>
+          <a [routerLink]="['/add']" class="nav-link" role="button" routerLinkActive="active">Agregar</a>
         </li>
         <li class="nav-item dropdown">
-          <a routerLink="findbyemail"  class="nav-link" role="button" routerLinkActive="active">Buscar</a>
+          <a [routerLink]="['/findbyemail']" class="nav-link" role="button" routerLinkActive="active">Buscar</a>
         </li>
       </ul>
     </div>
