@@ -9,7 +9,9 @@ public class User {
     private String email;
     private String firstname;
     private String lastname;
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
 
     @Id
