@@ -8,7 +8,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {AuthGuardGuard} from './_guards/auth-guard.guard';
 
 const routes: Routes = [
-  {path: '', component: UsersListComponent, canActivate: [AuthGuardGuard]},
+  {path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuardGuard]},
   {path: 'user', component: UsersListComponent},
   {path: 'add', component: CreateUserComponent},
   {path: 'findbyemail', component: SearchUsersComponent},

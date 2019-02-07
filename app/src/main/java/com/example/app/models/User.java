@@ -9,6 +9,8 @@ public class User {
     private String email;
     private String firstname;
     private String lastname;
+    private String username;
+    private String password;
 
     @Id
     @Column(name = "id")
@@ -45,8 +47,25 @@ public class User {
     public String getLastname() {
         return lastname;
     }
+    
 
-    public void setLastname(String lastname) {
+    public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
