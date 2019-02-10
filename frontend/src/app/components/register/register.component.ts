@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {User} from '../../models/user';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +9,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  model: any = {};
+  model: User = new User();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -18,16 +20,12 @@ export class RegisterComponent implements OnInit {
 
   register() {
     console.log(this.model);
-    localStorage.setItem('isLoggedin', 'true');
-    this.router.navigate(['/dashboard']);
-    // this.loading = true;
-    // this.authenticationService.login(this.model.username, this.model.password)
-    //   .subscribe(
-    //     data => {
-    //     },
-    //     error => {
-    //       this.alertService.error(error);
-    //       this.loading = false;
-    //     });
+
+    this.userService.createUser(this.model)
+      .subscribe(data => {
+        localStorage.setItem('isLoggedin', 'true');
+        this.router.navigate(['/dashboard']);
+      }, error => console.log(error));
+
   }
 }
