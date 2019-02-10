@@ -13,6 +13,8 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
+    @Column(name = "is_admin")
+    private Boolean is_admin;
 
     @Id
     @Column(name = "id")
@@ -49,26 +51,34 @@ public class User {
     public String getLastname() {
         return lastname;
     }
-    
+
 
     public String getUsername() {
-		return username;
-	}
+        return username;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setLastname(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Boolean getIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(Boolean is_admin) {
+        this.is_admin = is_admin;
     }
 
     @Override

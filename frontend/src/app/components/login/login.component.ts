@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   model: any = {};
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -18,17 +19,13 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.model);
-    localStorage.setItem('isLoggedin', 'true');
-    this.router.navigate(['/dashboard']);
-    // this.loading = true;
-    // this.authenticationService.login(this.model.username, this.model.password)
-    //   .subscribe(
-    //     data => {
-    //     },
-    //     error => {
-    //       this.alertService.error(error);
-    //       this.loading = false;
-    //     });
+    this.userService.loginUser(this.model)
+      .subscribe(data => {
+        console.log(data);
+        // localStorage.setItem('isLoggedin', 'true');
+        // this.router.navigate(['/dashboard']);
+      }, error => console.log(error));
+
   }
 
 }

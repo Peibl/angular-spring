@@ -38,6 +38,7 @@ public class UserController {
 
         return user.get();
     }
+
     @CrossOrigin
     @GetMapping("/users/email/{email}")
     public List<User> retrieveStudent(@PathVariable String email) {
@@ -72,6 +73,17 @@ public class UserController {
 
         return ResponseEntity.created(location).build();
 
+    }
+
+
+    @CrossOrigin
+    @PostMapping("/login")
+    public User loginUser(@RequestBody User user) {
+        List<User> byUsernameAndPassword = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if (byUsernameAndPassword.isEmpty()) {
+            return null;
+        }
+        return byUsernameAndPassword.get(0);
     }
 
     @CrossOrigin

@@ -20,6 +20,10 @@ export class UserService {
     return this.http.post(`${this.baseUrl}`, user);
   }
 
+  loginUser(user: Object): Observable<Object> {
+    return this.http.post('http://localhost:8080/login', user);
+  }
+
   updateUser(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
