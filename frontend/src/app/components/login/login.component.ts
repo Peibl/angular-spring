@@ -22,8 +22,16 @@ export class LoginComponent implements OnInit {
     this.userService.loginUser(this.model)
       .subscribe(data => {
         console.log(data);
-        // localStorage.setItem('isLoggedin', 'true');
-        // this.router.navigate(['/dashboard']);
+        if (data) {
+          localStorage.setItem('isLoggedin', 'true');
+          if (data.is_admin) {
+
+            this.router.navigate(['/dashboard-admin']);
+          } else {
+            this.router.navigate(['/dashboard']);
+
+          }
+        }
       }, error => console.log(error));
 
   }

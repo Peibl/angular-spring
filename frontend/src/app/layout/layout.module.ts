@@ -9,6 +9,7 @@ import {UserDetailsComponent} from './user-details/user-details.component';
 import {SearchUsersComponent} from './search-users/search-users.component';
 import {CreateUserComponent} from './create-user/create-user.component';
 import {FormsModule} from '@angular/forms';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {FormsModule} from '@angular/forms';
     UserDetailsComponent,
     UsersListComponent,
     SearchUsersComponent,
+    DashboardAdminComponent,
   ],
   imports: [
     CommonModule,
