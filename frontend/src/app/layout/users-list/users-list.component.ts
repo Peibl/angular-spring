@@ -13,21 +13,18 @@ export class UsersListComponent implements OnInit {
 
   users: Observable<User[]>;
 
-  // @Input usersResult: Observable<User[]>;
 
   constructor(private userService: UserService) {
   }
 
   ngOnInit() {
     this.reloadData();
-    // this.usersResult = this.users;
   }
 
   deleteUsers() {
     this.userService.deleteAll()
       .subscribe(
         data => {
-          console.log(data);
           this.reloadData();
         },
         error => console.log('ERROR: ' + error));
@@ -37,8 +34,5 @@ export class UsersListComponent implements OnInit {
     this.users = this.userService.getUsersList();
   }
 
-  // resultData(){
-  //   this.users = this.usersResult;
-  // }
 
 }

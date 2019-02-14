@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,14 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    console.log(this.model);
     this.userService.loginUser(this.model)
       .subscribe(data => {
-        console.log(data);
-        if (data) {
+        const user = data as User;
+        if (user) {
+          this.userService.loggedUser = user;
           localStorage.setItem('isLoggedin', 'true');
-          if (data.is_admin) {
+          localStorage.setItem('loggedUser', JSON.stringify(user));
+          if (user.is_admin) {
 
             this.router.navigate(['/dashboard-admin']);
           } else {
