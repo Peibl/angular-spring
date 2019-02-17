@@ -1,31 +1,12 @@
-<div class="container">
-  <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-
-  <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-  <!--<ul class="navbar-nav mr-auto">-->
-  <!--<li class="nav-item active">-->
-  <!--<a [routerLink]="['/user']" class="nav-link" role="button" routerLinkActive="active">Usuarios</a>-->
-  <!--</li>-->
-  <!--&lt;!&ndash;<li class="nav-item">&ndash;&gt;-->
-  <!--&lt;!&ndash;<a [routerLink]="['/add']" class="nav-link" role="button" routerLinkActive="active">Agregar</a>&ndash;&gt;-->
-  <!--&lt;!&ndash;</li>&ndash;&gt;-->
-  <!--<li class="nav-item dropdown">-->
-  <!--<a [routerLink]="['/findbyemail']" class="nav-link" role="button" routerLinkActive="active">Buscar</a>-->
-  <!--</li>-->
-  <!--<li class="nav-item ">-->
-  <!--<a [routerLink]="['/login']" class="nav-link" role="button" routerLinkActive="active">Salir</a>-->
-  <!--</li>-->
-  <!--</ul>-->
-  <!--</div>-->
-  <!--</nav>-->
+<div class="container" [ngStyle]="{ 'background-color': configService.$colorObs | async }">
   <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item ">
-          <a [routerLink]="['/user']" class="nav-link" routerLinkActive="active" >Usuarios</a>
+          <a [routerLink]="['/user']" class="nav-link" routerLinkActive="active">Usuarios</a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['/add']"  class="nav-link" routerLinkActive="active" >Agregar</a>
+          <a [routerLink]="['/add']" class="nav-link" routerLinkActive="active">Agregar</a>
         </li>
         <li class="nav-item">
           <a [routerLink]="['/findbyemail']" class="nav-link" routerLinkActive="active">Buscar</a>
@@ -34,7 +15,7 @@
       </ul>
     </div>
     <div class="mx-auto order-0">
-      <a class="navbar-brand mx-auto" href="#">WebGonzalez</a>
+      <a class="navbar-brand mx-auto" href="#">{{configService.$titleObs | async}}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -42,7 +23,7 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" >{{user.username}}</a>
+          <a class="nav-link">{{user.username}}</a>
 
         </li>
         <li class="nav-item">
