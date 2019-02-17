@@ -6,6 +6,7 @@ import {SearchUsersComponent} from './search-users/search-users.component';
 import {UsersListComponent} from './users-list/users-list.component';
 import {CreateUserComponent} from './create-user/create-user.component';
 import {DashboardAdminComponent} from './dashboard-admin/dashboard-admin.component';
+import {ConfigComponent} from './config/config.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,7 +17,8 @@ const routes: Routes = [{
     {path: 'dashboard-admin', component: DashboardAdminComponent},
     {path: 'add', component: CreateUserComponent},
     {path: 'findbyemail', component: SearchUsersComponent},
-    {path: 'user', component: UsersListComponent}
+    {path: 'user', component: UsersListComponent},
+    {path: 'config', component: ConfigComponent}
   ]
 }
 ];

@@ -19,8 +19,6 @@ export class RegisterComponent implements OnInit {
 
 
   register() {
-    console.log(this.model);
-
     this.userService.createUser(this.model)
       .subscribe(data => {
         localStorage.setItem('isLoggedin', 'true');

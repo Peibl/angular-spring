@@ -10,6 +10,7 @@ import {SearchUsersComponent} from './search-users/search-users.component';
 import {CreateUserComponent} from './create-user/create-user.component';
 import {FormsModule} from '@angular/forms';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
     UsersListComponent,
     SearchUsersComponent,
     DashboardAdminComponent,
+    ConfigComponent,
   ],
   imports: [
     CommonModule,

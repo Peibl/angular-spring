@@ -1,7 +1,9 @@
 package com.example.app.controllers;
 
 import com.example.app.exceptions.UserNotFoundException;
+import com.example.app.models.Config;
 import com.example.app.models.User;
+import com.example.app.repositories.ConfigRepository;
 import com.example.app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,8 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ConfigRepository configRepository;
 
     @CrossOrigin
     @GetMapping("/users")
@@ -100,5 +104,27 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @CrossOrigin
+    @GetMapping("/config")
+    public Config retrieveConfig() {
+        List<Config> all = this.configRepository.findAll();
+        if (!all.isEmpty()) {
+            return all.get(0);
+        }
+        return null;
+
+    }
+
+    @CrossOrigin
+    @PostMapping("/config")
+    public void createUser(@RequestBody Config config) {
+//        if (config.getId() == null) {
+        this.configRepository.save(config);
+//        } else {
+//
+//
+//        }
     }
 }

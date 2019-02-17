@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ConfigService} from './services/config.service';
 
 
 @Component({
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Web Gonzalez';
+  constructor(private configService: ConfigService) {
+    this.configService.syncConfig();
+  }
 }

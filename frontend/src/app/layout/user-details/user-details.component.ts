@@ -23,7 +23,6 @@ export class UserDetailsComponent implements OnInit {
       { firstname: this.user.firstname, lastname: this.user.lastname, email: this.user.email })
       .subscribe(
         data => {
-          console.log(data);
           this.user = data as User;
         },
         error => console.log(error));
@@ -33,7 +32,6 @@ export class UserDetailsComponent implements OnInit {
     this.userService.deleteUser(this.user.id)
       .subscribe(
         data => {
-          console.log(data);
           this.listComponent.reloadData();
         },
         error => console.log(error));

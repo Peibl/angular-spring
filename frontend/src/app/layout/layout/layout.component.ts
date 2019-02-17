@@ -19,7 +19,6 @@ export class LayoutComponent implements OnInit {
     if (localStorage.getItem('isLoggedin')) {
       const jsonUser = localStorage.getItem('loggedUser');
       this.user = JSON.parse(jsonUser)as User;
-      console.log(this.user.username);
     } else {
       this.router.navigate(['/login']);
     }
