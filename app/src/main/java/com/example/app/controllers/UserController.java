@@ -22,6 +22,7 @@ public class UserController {
     @Autowired
     private ConfigRepository configRepository;
 
+
     @CrossOrigin
     @GetMapping("/users")
     public List<User> retrieveAllUsers() {
@@ -120,11 +121,6 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/config")
     public void createUser(@RequestBody Config config) {
-//        if (config.getId() == null) {
         this.configRepository.save(config);
-//        } else {
-//
-//
-//        }
     }
 }
