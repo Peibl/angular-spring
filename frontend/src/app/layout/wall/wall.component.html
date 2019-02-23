@@ -42,6 +42,30 @@
   <div class="card-footer">
     <!--<a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>-->
     <!--<a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>-->
-    <a class="card-link" (click)="onShare()"><i class="fa fa-mail-forward"></i> Compartir</a>
+    <a class="card-link" (click)="onShare(content)"><i class="fa fa-mail-forward"></i> Compartir</a>
   </div>
 </div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Date of birth</label>
+        <div class="input-group">
+          <h4> hola</h4>
+     
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

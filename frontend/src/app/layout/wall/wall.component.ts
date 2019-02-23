@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Wall} from '../../models/Wall';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-wall',
@@ -8,14 +9,17 @@ import {Wall} from '../../models/Wall';
 })
 export class WallComponent implements OnInit {
   @Input() wall: Wall;
-
-  constructor() {
+  constructor(private modalService: NgbModal) {
   }
 
   ngOnInit() {
   }
 
-  onShare() {
-    console.log('share');
+  onShare(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log(result);
+    }, (reason) => {
+      console.log(reason);
+    });
   }
 }
