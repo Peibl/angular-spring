@@ -10,10 +10,10 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "user", schema = "dbapp", catalog = "")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id", scope = User.class)
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id", scope = User.class)
 public class User {
     @Id
     @Column(name = "id")

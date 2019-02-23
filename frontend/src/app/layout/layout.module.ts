@@ -11,6 +11,7 @@ import {CreateUserComponent} from './create-user/create-user.component';
 import {FormsModule} from '@angular/forms';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { ConfigComponent } from './config/config.component';
+import { WallComponent } from './wall/wall.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ConfigComponent } from './config/config.component';
     SearchUsersComponent,
     DashboardAdminComponent,
     ConfigComponent,
+    WallComponent,
   ],
   imports: [
     CommonModule,

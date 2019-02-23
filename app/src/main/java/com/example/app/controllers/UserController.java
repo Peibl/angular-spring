@@ -55,6 +55,17 @@ public class UserController {
         return null;
     }
 
+    @CrossOrigin
+    @GetMapping("/users/username/{email}")
+    public List<User> retrieveStudentByUsername(@PathVariable String username) {
+        List<User> users = null;
+        users = userRepository.findByUsername(username);
+        if (users != null && users.size() > 0)
+            return users;
+
+        return null;
+    }
+
 
     @CrossOrigin
     @DeleteMapping("/users/{id}")

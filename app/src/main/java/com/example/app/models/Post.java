@@ -9,10 +9,10 @@ import java.util.*;
 
 @Entity
 @Table(name = "post", schema = "dbapp", catalog = "")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id", scope = Post.class)
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id", scope = Post.class)
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,7 @@ public class Post {
     private Date creation_date;
     @JoinColumn(name = "creator_id")
     @ManyToOne
+    @JsonIgnoreProperties("posts")
     private User user_creator;
 
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

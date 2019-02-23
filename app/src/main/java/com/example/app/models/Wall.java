@@ -8,10 +8,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "wall", schema = "dbapp", catalog = "")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id", scope = Wall.class)
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id", scope = Wall.class)
 public class Wall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
