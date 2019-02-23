@@ -1,7 +1,9 @@
 package com.example.app.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "post", schema = "dbapp", catalog = "")
@@ -15,6 +17,10 @@ public class Post {
     @JoinColumn(name = "creator_id")
     @ManyToOne
     private User user_creator;
+
+    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("posts")
+    private Collection<Wall> users = new ArrayList<>();
 
 
     public Post() {
@@ -59,5 +65,13 @@ public class Post {
 
     public void setUser_creator(User user_creator) {
         this.user_creator = user_creator;
+    }
+
+    public Collection<Wall> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Collection<Wall> xxx) {
+        this.users = xxx;
     }
 }

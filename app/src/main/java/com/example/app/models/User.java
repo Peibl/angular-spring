@@ -1,13 +1,25 @@
 package com.example.app.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user", schema = "dbapp", catalog = "")
 public class User {
+    @Id
+    @Column(name = "id")
     private long id;
+    @Basic
+    @Column(name = "email")
     private String email;
+    @Basic
+    @Column(name = "firstname")
     private String firstname;
+    @Basic
+    @Column(name = "lastname")
     private String lastname;
     @Column(name = "username")
     private String username;
@@ -16,8 +28,12 @@ public class User {
     @Column(name = "is_admin")
     private Boolean is_admin = false;
 
-    @Id
-    @Column(name = "id")
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("users")
+    private Collection<Wall> posts = new ArrayList<>();
+
+
     public long getId() {
         return id;
     }
@@ -26,8 +42,7 @@ public class User {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "email")
+
     public String getEmail() {
         return email;
     }
@@ -36,8 +51,6 @@ public class User {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "firstname")
     public String getFirstname() {
         return firstname;
     }
@@ -46,8 +59,7 @@ public class User {
         this.firstname = firstname;
     }
 
-    @Basic
-    @Column(name = "lastname")
+
     public String getLastname() {
         return lastname;
     }
@@ -103,5 +115,13 @@ public class User {
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
+    }
+
+    public Collection<Wall> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Collection<Wall> xxx) {
+        this.posts = xxx;
     }
 }
