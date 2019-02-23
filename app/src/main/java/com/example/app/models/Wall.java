@@ -1,9 +1,17 @@
 package com.example.app.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "wall", schema = "dbapp", catalog = "")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id", scope = Wall.class)
 public class Wall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,11 +20,13 @@ public class Wall {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("posts")
     private User user;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "post_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("users")
     private Post post;
 
     public Wall() {

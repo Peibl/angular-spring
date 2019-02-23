@@ -3,4 +3,12 @@
   <p>
     <button class="btn btn-success" (click)="publishPost()">Publicar</button>
   </p>
+<hr>
+  <div *ngIf="user">
+    <ul>
+      <li *ngFor="let wall of  user.posts">
+        {{wall.post.text}} - {{wall.post.creation_date | date: 'dd/MM/yyyy HH:mm:ss'}}
+      </li>
+    </ul>
+  </div>
 </div>

@@ -2,6 +2,7 @@ package com.example.app.controllers;
 
 import com.example.app.models.Post;
 import com.example.app.models.User;
+import com.example.app.models.Wall;
 import com.example.app.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,16 @@ public class PostController {
     @CrossOrigin
     @PostMapping("/posts")
     public ResponseEntity<Object> createUser(@RequestBody Post post) {
+
         Post savedPost = postRepository.save(post);
+
+        Wall wall = new Wall();
+        wall.setUser(savedPost.getUser_creator());
+        wall.setPost(savedPost);
+
+        savedPost.getUsers().add(wall);
+        postRepository.save(savedPost);
+
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(savedPost.getId()).toUri();

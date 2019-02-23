@@ -1,6 +1,8 @@
 package com.example.app.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,6 +10,10 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "user", schema = "dbapp", catalog = "")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id", scope = User.class)
 public class User {
     @Id
     @Column(name = "id")
@@ -30,7 +36,6 @@ public class User {
 
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties("users")
     private Collection<Wall> posts = new ArrayList<>();
 
 

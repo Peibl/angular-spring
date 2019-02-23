@@ -1,3 +1,6 @@
+import {Post} from './post';
+import {Wall} from './Wall';
+
 export class User {
   id: number;
   firstname: string;
@@ -6,4 +9,5 @@ export class User {
   username: string;
   password: string;
   is_admin: boolean;
+  posts: Wall[];
 }

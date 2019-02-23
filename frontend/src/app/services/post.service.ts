@@ -15,5 +15,4 @@ export class PostService {
   createPost(post: Post): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, post);
   }
-  
 }

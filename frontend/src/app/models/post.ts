@@ -1,4 +1,5 @@
 import {User} from './user';
+import {Wall} from './Wall';
 
 export class Post {
   id: number;
@@ -6,4 +7,5 @@ export class Post {
   image: string;
   creation_date: Date;
   user_creator: User;
+  users: Wall[];
 }

@@ -1,12 +1,18 @@
 package com.example.app.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 @Table(name = "post", schema = "dbapp", catalog = "")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id", scope = Post.class)
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
