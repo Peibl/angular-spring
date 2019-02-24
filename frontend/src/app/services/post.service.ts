@@ -15,4 +15,8 @@ export class PostService {
   createPost(post: Post): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, post);
   }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
+  }
 }

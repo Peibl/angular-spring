@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/user';
+import {Wall} from '../models/Wall';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,9 @@ export class UserService {
 
   deleteAll(): Observable<any> {
     return this.http.delete(`${this.baseUrl}` + `/delete`, {responseType: 'text'});
+  }
+
+  sharePost(user: User, wall: Wall) {
+    return this.http.post(`${this.baseUrl}` + '/' + user.id + '/share', wall);
   }
 }

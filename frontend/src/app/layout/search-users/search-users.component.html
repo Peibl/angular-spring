@@ -7,7 +7,7 @@
     </div>
 
     <div class="btn-group">
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success">Buscar</button>
     </div>
   </form>
 </div>
@@ -16,9 +16,10 @@
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">First name</th>
-    <th scope="col">Last name</th>
-    <th scope="col">Email</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Apellido</th>
+    <th scope="col">Usuario</th>
+    <th scope="col"></th>
   </tr>
   </thead>
   <tbody>
@@ -26,13 +27,16 @@
     <th scope="row">1</th>
     <td>{{user.firstname}}</td>
     <td>{{user.lastname}}</td>
-    <td>{{user.email}}</td>
+    <td>{{user.username}}</td>
+    <td>
+      <button class="btn btn-outline-dark btn-sm" (click)="onClickShare(user)"> Compartir</button>
+    </td>
   </tr>
   </tbody>
 </table>
 <!--<users-list [usersResult] = users></users-list>-->
 <!--<div class="row">-->
-  <!--<div class="col-sm-3" *ngFor="let user of users">-->
-    <!--<user-details [user]='user'></user-details>-->
-  <!--</div>-->
+<!--<div class="col-sm-3" *ngFor="let user of users">-->
+<!--<user-details [user]='user'></user-details>-->
+<!--</div>-->
 <!--</div>-->
