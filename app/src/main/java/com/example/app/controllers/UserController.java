@@ -3,6 +3,7 @@ package com.example.app.controllers;
 import com.example.app.exceptions.UserNotFoundException;
 import com.example.app.models.Config;
 import com.example.app.models.User;
+import com.example.app.models.Wall;
 import com.example.app.repositories.ConfigRepository;
 import com.example.app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,5 +134,20 @@ public class UserController {
     @PostMapping("/config")
     public void createUser(@RequestBody Config config) {
         this.configRepository.save(config);
+    }
+
+    @CrossOrigin
+    @PostMapping("/users/{id}/share")
+    public void postUser(@PathVariable long id,@RequestBody Wall wall2) {
+        Optional<User> one = this.userRepository.findById(id);
+        if(one.isPresent()){
+            User user = one.get();
+
+            Wall wall = new Wall();
+            wall.setUser(user);
+            wall.setPost(wall2.getPost());
+            user.getPosts().add(wall);
+            this.userRepository.save(user);
+        }
     }
 }
