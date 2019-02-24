@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.*;
 
 @Entity
@@ -56,7 +57,6 @@ public class Post {
     public void setImage(String image) {
         this.image = image;
     }
-
 
     public Date getCreation_date() {
         return creation_date;

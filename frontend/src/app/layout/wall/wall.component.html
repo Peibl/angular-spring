@@ -38,6 +38,10 @@
     <p class="card-text">
       {{wall.post.text}}
     </p>
+
+    <div *ngIf="wall.post.image" style="width:200px;height:300px">
+      <img [src]="wall.post.image" class="img-thumbnail">
+    </div>
   </div>
   <div class="card-footer">
     <!--<a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>-->

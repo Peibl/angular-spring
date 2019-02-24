@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.userService.createUser(this.model)
       .subscribe(data => {
         localStorage.setItem('isLoggedin', 'true');
-        this.userService.loggedUser = data
+        this.userService.loggedUser = data as User
         localStorage.setItem('isLoggedin', 'true');
         localStorage.setItem('loggedUser', JSON.stringify(data));
         this.router.navigate(['/dashboard']);

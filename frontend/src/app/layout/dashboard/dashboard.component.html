@@ -12,7 +12,7 @@
              aria-selected="true">Publicar</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" >Imagenes</a>
+        <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false"  href="#images" >Imagenes</a>
         </li>
       </ul>
     </div>
@@ -28,7 +28,7 @@
         <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
           <div class="form-group">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile">
+              <input type="file" class="custom-file-input" id="customFile"  accept="image/*" (change)="onChangeFile($event)">
               <label class="custom-file-label" for="customFile">Upload image</label>
             </div>
           </div>
