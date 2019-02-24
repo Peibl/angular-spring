@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Config} from '../models/config';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ConfigService {
   public titleObs = this.$titleBehavior.asObservable();
   public colorObs = this.$colorBehavior.asObservable();
 
-  private baseUrl = 'http://localhost:8080/config';
+  private baseUrl = environment.apiUrl + '/config';
   private config;
 
   constructor(private http: HttpClient) {

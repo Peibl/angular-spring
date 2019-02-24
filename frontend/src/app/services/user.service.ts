@@ -3,13 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/user';
 import {Wall} from '../models/Wall';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   loggedUser: User;
-  private baseUrl = 'http://localhost:8080/users';
+  private baseUrl = environment.apiUrl + '/users';
 
   constructor(private http: HttpClient) {
   }
@@ -23,7 +24,7 @@ export class UserService {
   }
 
   loginUser(user: Object): Observable<Object> {
-    return this.http.post('http://localhost:8080/login', user);
+    return this.http.post(environment.apiUrl + '/login', user);
   }
 
   updateUser(id: number, value: any): Observable<Object> {
